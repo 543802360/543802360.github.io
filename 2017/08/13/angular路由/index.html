@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 召唤师峡谷</title>
+  <title>Angula路由 | 召唤师峡谷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="召唤师峡谷">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="路由在web开发中，路由是指将 应用划分成多个分区，通常是按照从浏览器的URL衍生出来的规则进行分割。   为什么需要路由在应用程序中定义路由非常有用，因为我们可以：  将应用程序划分为多个分区 维护应用程序的状态 基于某些规则保护应用分区">
+<meta name="keywords" content="Angular,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angula路由">
+<meta property="og:url" content="http://yoursite.com/2017/08/13/angular路由/index.html">
 <meta property="og:site_name" content="召唤师峡谷">
+<meta property="og:description" content="路由在web开发中，路由是指将 应用划分成多个分区，通常是按照从浏览器的URL衍生出来的规则进行分割。   为什么需要路由在应用程序中定义路由非常有用，因为我们可以：  将应用程序划分为多个分区 维护应用程序的状态 基于某些规则保护应用分区">
+<meta property="og:updated_time" content="2017-08-13T09:27:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="召唤师峡谷">
+<meta name="twitter:title" content="Angula路由">
+<meta name="twitter:description" content="路由在web开发中，路由是指将 应用划分成多个分区，通常是按照从浏览器的URL衍生出来的规则进行分割。   为什么需要路由在应用程序中定义路由非常有用，因为我们可以：  将应用程序划分为多个分区 维护应用程序的状态 基于某些规则保护应用分区">
   
     <link rel="alternative" href="/atom.xml" title="召唤师峡谷" type="application/atom+xml">
   
@@ -158,36 +163,107 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-angular路由" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/13/angular路由/" class="archive-article-date">
-  	<time datetime="2017-08-13T09:26:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/13/angular路由/">Angula路由</a>
+    <h1 class="article-title" itemprop="name">
+      Angula路由
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/13/angular路由/" class="archive-article-date">
+  	<time datetime="2017-08-13T09:26:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>在web开发中，路由是指将 <strong>应用划分成多个分区</strong>，通常是按照从浏览器的URL衍生出来的规则进行分割。  </p>
+<h3 id="为什么需要路由"><a href="#为什么需要路由" class="headerlink" title="为什么需要路由"></a>为什么需要路由</h3><p>在应用程序中定义路由非常有用，因为我们可以：</p>
+<ul>
+<li>将应用程序划分为多个分区</li>
+<li>维护应用程序的状态</li>
+<li>基于某些规则保护应用分区</li>
+</ul>
+<a id="more"></a>
+<h3 id="客户端路由与服务端路由"><a href="#客户端路由与服务端路由" class="headerlink" title="客户端路由与服务端路由"></a>客户端路由与服务端路由</h3><p>通常，在服务端负责路由的情况下，收到HTTP请求后，服务器会根据收到的URL来运行相应的控制器。</p>
+<p>例如，在Express中，可以这样实现一个最简单的路由：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var router = express.Router();</div><div class="line"></div><div class="line">/* GET home page. */</div><div class="line">router.get(&apos;/&apos;, function (req, res, next) &#123;</div><div class="line">    res.render(&apos;index&apos;, &#123;</div><div class="line">        title: &apos;三维可视化平台&apos;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">module.exports = router;</div></pre></td></tr></table></figure>
+<p>上面的代码当你访问主页时，渲染index.ejs模板。可以认为<strong>服务端路由定义了应用的端点（URIS）以及如何响应客户端的请求</strong>。服务器接收一个请求，并路由到下一个控制器。该控制器根据<strong>路径和参数</strong>执行特定的任务。再来看下面这个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 地形路由(*.terrain)</div><div class="line"> */</div><div class="line">//加载依赖模块</div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var router = express.Router();</div><div class="line">var terrainService = require(&apos;../server/terrainService&apos;);</div><div class="line"></div><div class="line">/**</div><div class="line"> * 地形服务器</div><div class="line"> */</div><div class="line">router.get(&apos;/terrain&apos;, function(req, res, next) &#123;</div><div class="line">    res.send(&apos;地形服务器正在运行……&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">/**</div><div class="line"> * 获取地形瓦片元数据</div><div class="line"> */</div><div class="line">router.get(&apos;/terrain/layer.json&apos;, function(req, res, next) &#123;</div><div class="line"></div><div class="line">    terrainService.getTerrainMetaData(res);</div><div class="line"></div><div class="line">&#125;);</div><div class="line">/**</div><div class="line"> * </div><div class="line"> */</div><div class="line">router.get(&apos;/terrain/:z/:x/:y&apos;, function(req, res, next) &#123;</div><div class="line"></div><div class="line">    var path = req.params.path;</div><div class="line">    var z = req.params.z,</div><div class="line">        x = req.params.x,</div><div class="line">        y = req.params.y.split(&apos;.&apos;)[0];</div><div class="line"></div><div class="line">    terrainService.getTerrain(z, x, y, res);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line">module.exports = router;</div></pre></td></tr></table></figure>
+<p>上面是一个简单的地形路由，服务端收到客户端发送的地形瓦片请求，这里的控制器就是回调函数，具体的处理包括解析客户端请求、处理客户端请求（包括与后台数据库操作等）、返回结果至客户端等等。 </p>
+<p>客户端路由在概念上很相似，但是实施方法不同。在客户端路由情况下，每次URL发生变化时，不一定会向服务器发送请求。我们把Angular应用叫作单页面应用程序（Single Page App，SPA），因为服务器只提供一个页面，负责渲染各种页面的是JavaScript。</p>
+<blockquote>
+<p>此SPA非彼SPA，😆。详情请参考 <a href="https://github.com/livoras/blog/issues/3" target="_blank" rel="external">一种SPA（单页面应用）架构</a></p>
+</blockquote>
+<h3 id="Angular-中的路由"><a href="#Angular-中的路由" class="headerlink" title="Angular 中的路由"></a>Angular 中的路由</h3><p>在Angular中，我们通过将 <strong>==路径映射到处理它们的组件来配置路由。==</strong>  </p>
+<h4 id="Angular-路由的组成部件"><a href="#Angular-路由的组成部件" class="headerlink" title="Angular 路由的组成部件"></a>Angular 路由的组成部件</h4><p>我们使用三种部件来配置Angular路由。</p>
+<ul>
+<li>Routes：描述了应用程序支持的路由配置</li>
+<li>RouterOutlet：这是一个“占位符”组件，告诉Angular要把每个路由的内容放在哪里。</li>
+<li>RouterLink指令：用于创建各种路由链接</li>
+</ul>
+<h4 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h4><p>为了使用 Angular路由，首先从 @angular/router库中导入一些常量。在app.module.ts中导入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import &#123; RouterModule, Routes &#125; from &quot;@angular/router&quot;;</div><div class="line">import &#123; LocationStrategy, HashLocationStrategy &#125; from &quot;@angular/common&quot;;</div></pre></td></tr></table></figure>
+<p>现在，我们可以开始定义路由器配置了。</p>
+<h4 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h4><p>为了定义应用的路由配置，首先创建一个Routes配置，然后使用RouterModule.forRoot(routes)来为应用程序提供使用路由必需的依赖。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 路由配置</div><div class="line"> */</div><div class="line">const routes: Routes = [</div><div class="line">  &#123;</div><div class="line">    path: &quot;&quot;,</div><div class="line">    redirectTo: &quot;home&quot;,</div><div class="line">    pathMatch: &quot;full&quot;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    path: &quot;home&quot;,</div><div class="line">    component: HomeComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    path: &quot;about&quot;,</div><div class="line">    component: AboutComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    path: &quot;contact&quot;,</div><div class="line">    component: ContactComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    path: &quot;contactus&quot;,</div><div class="line">    redirectTo: &quot;contact&quot;</div><div class="line">  &#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<ul>
+<li>path：指定该路由要处理的URL路径。</li>
+<li>componet：用于链接当前路由路径与处理该路由的组件。</li>
+<li>redirectTo：可选项。用于将当前路由重定向至另一个已知路由</li>
+</ul>
+<p>==<strong>综上所述，路由配置的目的就是要指定组件要处理的路径</strong>==</p>
+<p>这里我创建了三个最简单的组件，Home、About、Contact。完整的NgModule如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">import &#123; BrowserModule &#125; from &quot;@angular/platform-browser&quot;;</div><div class="line">import &#123; NgModule &#125; from &quot;@angular/core&quot;;</div><div class="line">//导入路由模块</div><div class="line">import &#123; RouterModule, Routes &#125; from &quot;@angular/router&quot;;</div><div class="line">import &#123; LocationStrategy, HashLocationStrategy &#125; from &quot;@angular/common&quot;;</div><div class="line">//导入组件</div><div class="line">import &#123; AppComponent &#125; from &quot;./app.component&quot;;</div><div class="line">import &#123; HomeComponent &#125; from &quot;./home/home.component&quot;;</div><div class="line">import &#123; AboutComponent &#125; from &quot;./about/about.component&quot;;</div><div class="line">import &#123; ContactComponent &#125; from &quot;./contact/contact.component&quot;;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 路由配置</div><div class="line"> */</div><div class="line">const routes: Routes = [</div><div class="line">  &#123;</div><div class="line">    path: &quot;&quot;,</div><div class="line">    redirectTo: &quot;home&quot;,</div><div class="line">    pathMatch: &quot;full&quot;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    path: &quot;home&quot;,</div><div class="line">    component: HomeComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    path: &quot;about&quot;,</div><div class="line">    component: AboutComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    path: &quot;contact&quot;,</div><div class="line">    component: ContactComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    path: &quot;contactus&quot;,</div><div class="line">    redirectTo: &quot;contact&quot;</div><div class="line">  &#125;</div><div class="line">];</div><div class="line"></div><div class="line">@NgModule(&#123;</div><div class="line">  //组件声明</div><div class="line">  declarations: [AppComponent, HomeComponent, AboutComponent, ContactComponent],</div><div class="line">  //导入依赖</div><div class="line">  imports: [</div><div class="line">    BrowserModule,</div><div class="line">    RouterModule.forRoot(routes) //安装路由</div><div class="line">  ],</div><div class="line">  //依赖注入。暂时不懂</div><div class="line">  //这个选项是一个数组,需要我们列出我们这个模块的一些需要共用的服务</div><div class="line">  //然后我们就可以在这个模块的各个组件中通过依赖注入使用了.</div><div class="line">  providers: [</div><div class="line">    &#123;</div><div class="line">      provide: LocationStrategy,</div><div class="line">      useClass: HashLocationStrategy</div><div class="line">    &#125;</div><div class="line">  ],</div><div class="line">  bootstrap: [AppComponent]</div><div class="line">&#125;)</div><div class="line">export class AppModule &#123;&#125;</div></pre></td></tr></table></figure>
+<h4 id="使用-调用RouterOutlet指令"><a href="#使用-调用RouterOutlet指令" class="headerlink" title="使用 调用RouterOutlet指令"></a>使用 <router-outlet>调用RouterOutlet指令</router-outlet></h4><p>当路由发生变化时，我们希望保留外部布局框架，只用路由的组件替换页面的局部内容。</p>
+<p>为了指定Angular在页面的什么地方渲染各种路由的内容，我们使用RouterOutlet指令。</p>
+<blockquote>
+<p><router-outlet>元素标示了各个路由组件的内容应该放在哪里被渲染。</router-outlet></p>
+</blockquote>
+<p>下面是顶层组件及其模板</p>
+<p>app.component.ts<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import &#123; Component &#125; from &quot;@angular/core&quot;;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">  selector: &quot;app-root&quot;,</div><div class="line">  templateUrl: &quot;./app.component.html&quot;,</div><div class="line">  styleUrls: [&quot;./app.component.css&quot;]</div><div class="line">&#125;)</div><div class="line">export class AppComponent &#123;</div><div class="line">  title = &quot;Angular 路由实例&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>组件视图模板：app.component.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;!-- 导航栏，固定顶部，应用外框 --&gt;</div><div class="line">  &lt;nav class=&quot;navbar navbar-inverse navbar-fixed-top&quot; role=&quot;navigation&quot;&gt;</div><div class="line"></div><div class="line">    &lt;div class=&quot;container&quot;&gt;</div><div class="line">      &lt;!-- nav header --&gt;</div><div class="line">      &lt;div class=&quot;navbar-header&quot;&gt;</div><div class="line">        &lt;button type=&quot;button&quot; class=&quot;navbar-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#my-navbar&quot; aria-expanded=&quot;false&quot;&gt;</div><div class="line">            &lt;span class=&quot;sr-only&quot;&gt;切换导航栏&lt;/span&gt;</div><div class="line">            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">        &lt;/button&gt;</div><div class="line">        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Angular 路由&lt;/a&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;!-- 导航栏菜单 --&gt;</div><div class="line">      &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;my-navbar&quot;&gt;</div><div class="line">        &lt;ul class=&quot;nav navbar-nav&quot;&gt;</div><div class="line">          &lt;li&gt;</div><div class="line">            &lt;a [routerLink]=&quot;[&apos;home&apos;]&quot;&gt;主页&lt;/a&gt;</div><div class="line">          &lt;/li&gt;</div><div class="line"></div><div class="line">        &lt;/ul&gt;</div><div class="line">        &lt;!-- 右侧导航栏 --&gt;</div><div class="line">        &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;</div><div class="line">          &lt;li&gt;</div><div class="line">            &lt;a [routerLink]=&quot;[&apos;about&apos;]&quot;&gt;关于我&lt;/a&gt;</div><div class="line">          &lt;/li&gt;</div><div class="line">          &lt;li&gt;</div><div class="line">            &lt;a [routerLink]=&quot;[&apos;contact&apos;]&quot;&gt;联系我&lt;/a&gt;</div><div class="line">          &lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/nav&gt;</div><div class="line">  &lt;!-- 路由指定组件内容的渲染位置 --&gt;</div><div class="line">  &lt;div class=&quot;container-fluid&quot;&gt;</div><div class="line">    &lt;router-outlet&gt;&lt;/router-outlet&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>这里，我使用了BootStrap的样式。</p>
+<h4 id="使用-routerLink-调用routerLink指令"><a href="#使用-routerLink-调用routerLink指令" class="headerlink" title="使用[routerLink]调用routerLink指令"></a>使用[routerLink]调用routerLink指令</h4><p>Angular提供了一种可以在 <strong>不重载页面</strong> 的情况下链接路由：使用routerLink指令。 <strong>[]</strong> 是输入操作。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a [routerLink]=&quot;[&apos;contact&apos;]&quot;&gt;联系我&lt;/a&gt;</div></pre></td></tr></table></figure>
+<p>左边的[routerLink]将该指令作用于当前元素（<a>）<br>右边是一个数组（这里只有第一个元素），<strong>==第一个元素是路由的路径（路由配置中的路径path）==</strong>，比如 “[‘home’]”，用来指定点击该元素时应该导航到哪个路由。</a></p>
+<p>实例地址：<a href="https://543802360.github.io/demo/ng-lesson05/" target="_blank" rel="external">https://543802360.github.io/demo/ng-lesson05/#/home</a></p>
+<p>demo源码：<a href="https://github.com/543802360/Angular_learning/tree/master/lesson05" target="_blank" rel="external">https://github.com/543802360/Angular_learning/tree/master/lesson05</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,88 +279,120 @@ ga('send', 'pageview');
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/13/angular路由/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/01/my-first-blog/" class="archive-article-date">
-  	<time datetime="2017-08-01T15:16:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/01/my-first-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">初出茅庐的召唤师</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/01/my-first-blog/">初出茅庐的召唤师</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工作</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/01/hello-world/" class="archive-article-date">
-  	<time datetime="2017-08-01T13:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/01/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'true'; // required: replace example with your forum shortname
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -307,8 +415,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
