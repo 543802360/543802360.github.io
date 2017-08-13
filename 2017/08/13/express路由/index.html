@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | 召唤师峡谷</title>
+  <title>express中的路由 | 召唤师峡谷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="召唤师峡谷">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="Angular路由见：Angular路由  今天学习了Angular中的路由，第一次知道了客户端路由的概念，以前的所接触的路由应该称为服务端路由，自己用的比较多的也就是express了  路由是指如何定义应用的端点（URIs）以及如何响应客户端的请求。路由是由一个URI、HTTP请求（GET、POST等）和若干个句柄组成，它的结构如下：app.METHOD(path,[callback……],c">
+<meta name="keywords" content="express,路由,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="express中的路由">
+<meta property="og:url" content="http://yoursite.com/2017/08/13/express路由/index.html">
 <meta property="og:site_name" content="召唤师峡谷">
+<meta property="og:description" content="Angular路由见：Angular路由  今天学习了Angular中的路由，第一次知道了客户端路由的概念，以前的所接触的路由应该称为服务端路由，自己用的比较多的也就是express了  路由是指如何定义应用的端点（URIs）以及如何响应客户端的请求。路由是由一个URI、HTTP请求（GET、POST等）和若干个句柄组成，它的结构如下：app.METHOD(path,[callback……],c">
+<meta property="og:updated_time" content="2017-08-13T09:46:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="召唤师峡谷">
+<meta name="twitter:title" content="express中的路由">
+<meta name="twitter:description" content="Angular路由见：Angular路由  今天学习了Angular中的路由，第一次知道了客户端路由的概念，以前的所接触的路由应该称为服务端路由，自己用的比较多的也就是express了  路由是指如何定义应用的端点（URIs）以及如何响应客户端的请求。路由是由一个URI、HTTP请求（GET、POST等）和若干个句柄组成，它的结构如下：app.METHOD(path,[callback……],c">
   
     <link rel="alternative" href="/atom.xml" title="召唤师峡谷" type="application/atom+xml">
   
@@ -158,36 +163,94 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-express路由" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/13/express路由/" class="archive-article-date">
-  	<time datetime="2017-08-13T09:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/13/express路由/">express中的路由</a>
+    <h1 class="article-title" itemprop="name">
+      express中的路由
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/13/express路由/" class="archive-article-date">
+  	<time datetime="2017-08-13T09:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Angular路由见：<a href="https://543802360.github.io/2017/08/13/angular%E8%B7%AF%E7%94%B1/" target="_blank" rel="external">Angular路由</a></p>
+<blockquote>
+<p>今天学习了Angular中的路由，第一次知道了客户端路由的概念，以前的所接触的路由应该称为服务端路由，自己用的比较多的也就是express了</p>
+</blockquote>
+<p>路由是指如何定义应用的端点（URIs）以及如何响应客户端的请求。<br>路由是由一个URI、HTTP请求（GET、POST等）和若干个句柄组成，它的结构如下：app.METHOD(path,[callback……],callback)，app是express对象的一个实例，METHOD是一个HTTP请求方法（get、post），path是服务器上的路径（相对路径），callback是当路由匹配时要执行的函数。<br>下面是一个基本的路由示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">//对网站首页的访问(get)返回&quot;hello bluce!&quot;字样</div><div class="line">app.get(&apos;/&apos;, function(req,res)&#123;</div><div class="line">   res.send(&apos;hello bluce!&apos;); </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="路由方法"><a href="#路由方法" class="headerlink" title="路由方法"></a>路由方法</h2><p>路由方法源于HTTP请求，和express实例相关联。<br>下面这个例子展示了为应用跟路径定义的GET和POST请求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//GET method route</div><div class="line">app.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    res.send(&apos;GET request to the homepage&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//POST method route</div><div class="line">app.post(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    res.send(&apos;post request to the homepage&apos;); </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Express 定义了如下和 HTTP 请求对应的路由方法： get, post, put, head, delete, options, trace, copy, lock, mkcol, move, purge, propfind, proppatch, unlock, report, mkactivity, checkout, merge, m-search, notify, subscribe, unsubscribe, patch, search, 和 connect。</p>
+<blockquote>
+<p>有些路由方法名不是合规的 JavaScript 变量名，此时使用括号记法，比如： app<a href="&#39;/&#39;, function ...
+app.all(">‘m-search’</a>是一个特殊的路由方法，没有任何http方法与其对应，它的作用是对于一个路径上的所有请求加载中间件。<br>在下面的例子中，来自”/secret”的请求，不管使用GET、POST、PUT、DELETE或其他任何http模块支持的http请求，句柄都会得到执行。  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.all(&apos;/secret&apos;,function(req,res)&#123;</div><div class="line">   console.log(&apos; Accessing the secret section …&apos;);</div><div class="line">   next();// pass control to the next handler</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="路由路径"><a href="#路由路径" class="headerlink" title="路由路径"></a>路由路径</h2><p>路由路径和请求方法一起定义了请求的端点，它可以是字符串、字符串模式或者正则表达式。<br>使用字符串的路由路径示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//匹配根路径的请求</div><div class="line">app.get(&apos;/&apos;,function(req,re)&#123;</div><div class="line">   res.send(&apos;response to path of root&apos;); </div><div class="line">&#125;);</div><div class="line"></div><div class="line">//陪匹配/about路径的请求</div><div class="line">app.get(&apos;/about&apos;,function(req,re)&#123;</div><div class="line">    res.send(&apos;response to path of about&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 匹配 /random.text 路径的请求</div><div class="line">app.get(&apos;/random.text&apos;,function(req,res)&#123;</div><div class="line">   res.send(&apos;response to path of random.text&apos;); </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>使用字符串模式的路由路径示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 匹配 acd 和 abcd</div><div class="line">app.get(&apos;/ab?cd&apos;, function(req, res) &#123;</div><div class="line">  res.send(&apos;ab?cd&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 匹配 abcd、abbcd、abbbcd等</div><div class="line">app.get(&apos;/ab+cd&apos;, function(req, res) &#123;</div><div class="line">  res.send(&apos;ab+cd&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 匹配 abcd、abxcd、abRABDOMcd、ab123cd等</div><div class="line">app.get(&apos;/ab*cd&apos;, function(req, res) &#123;</div><div class="line">  res.send(&apos;ab*cd&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 匹配 /abe 和 /abcde</div><div class="line">app.get(&apos;/ab(cd)?e&apos;, function(req, res) &#123;</div><div class="line"> res.send(&apos;ab(cd)?e&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>字符 ?、+、* 和 () 是正则表达式的子集，- 和 . 在基于字符串的路径中按照字面值解释。</p>
+</blockquote>
+<p>使用正则表达式的路由路径示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 匹配任何路径中含有 a 的路径：</div><div class="line">app.get(/a/, function(req, res) &#123;</div><div class="line">  res.send(&apos;/a/&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 匹配 butterfly、dragonfly，不匹配 butterflyman、dragonfly man等</div><div class="line">app.get(/.*fly$/, function(req, res) &#123;</div><div class="line">  res.send(&apos;/.*fly$/&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="路由句柄"><a href="#路由句柄" class="headerlink" title="路由句柄"></a>路由句柄</h2><p>可以为请求处理提供多个回调函数，其行为类似中间件。唯一的区别是这些回调函数有可能调用next(‘route’)方法而略过其他路由回调函数。可以利用该机制为路由定义前提条件，如果在现有路径上继续执行没有意义，则可将控制权交给剩下的路径。<br>路由句柄有多种形式，可以是一个函数、一个函数组，或者是两者结合。如下所示：<br>使用一个回调函数处理路由：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.get(&apos;/example/a&apos;,function(req,res)&#123;</div><div class="line">   res.send(&apos;Hello from A!&apos;); </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>使用多个回调函数处理路由（记得指定next对象）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">app.get(&apos;/example/b&apos;,function(req,res,next)&#123;</div><div class="line">    console.log(&apos;response will be sent to by the next function……&apos;);</div><div class="line">    next();</div><div class="line">&#125;,function(req,res)&#123;</div><div class="line">    res.send(&apos;Hello from B!&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>使用回调函数数组处理路由：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var cb0 = function(req,res,next)&#123;</div><div class="line">    console.log(&apos;CB0&apos;);</div><div class="line">    next();</div><div class="line">&#125;</div><div class="line"></div><div class="line">var cb1 = function(req,res,next)&#123;</div><div class="line">    console.log(&apos;CB1&apos;);</div><div class="line">    next();</div><div class="line">&#125;</div><div class="line"></div><div class="line">var cb2 = function(req,res)&#123;</div><div class="line">    console.log(&apos;Hello from C!&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">app.get(&apos;/example/c&apos;,[cb0,cb1,cb2]);</div></pre></td></tr></table></figure>
+<p>混合使用函数和函数数组处理路由：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var cb0 = function (req, res, next) &#123;</div><div class="line">  console.log(&apos;CB0&apos;);</div><div class="line">  next();</div><div class="line">&#125;</div><div class="line"></div><div class="line">var cb1 = function (req, res, next) &#123;</div><div class="line">  console.log(&apos;CB1&apos;);</div><div class="line">  next();</div><div class="line">&#125;</div><div class="line"></div><div class="line">app.get(&apos;/example/d&apos;, [cb0, cb1], function (req, res, next) &#123;</div><div class="line">  console.log(&apos;response will be sent by the next function ...&apos;);</div><div class="line">  next();</div><div class="line">&#125;, function (req, res) &#123;</div><div class="line">  res.send(&apos;Hello from D!&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="响应方法-终结请求-响应循环"><a href="#响应方法-终结请求-响应循环" class="headerlink" title="响应方法(终结请求-响应循环)"></a>响应方法(终结请求-响应循环)</h2><p><strong><em>下表中响应对象（res）的方法向客户端返回响应，终结请求响应的循环</em></strong>。如果在路由句柄中一个方法也不调用，来自客户端的请求会一直挂起。<br>方法 | 描述<br>—|—<br>res.download() |提示下载文件<br>res.end() |终结响应处理流程<br>res.json()|发送一个JSON格式的响应<br>res.jsonp()|发送一个支持JSONP的JSON格式的响应<br>res.redirect()|重定向请求<br>res.render()|渲染视图模板<br>res.send()|发送各种类型的响应<br>res.sendFile()|以八位字节流的形式发送文件<br>res.sendStatus()|设置响应状态代码，并将其以字符串形式作为响应体的一部分发送</p>
+<h2 id="app-route"><a href="#app-route" class="headerlink" title="app.route()"></a>app.route()</h2><p>可使用app.route()创建路由路径的==链式路由句柄==。由于路径在一个地方指定，这样做有助于==创建模块化的路由，而且减少了代码冗余和拼写错误==。请参考Router()文档了解更多有关路由的信息。<br>下面这个示例程序使用app.route()定义了链式路由句柄。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">app.route(&apos;/book&apos;)</div><div class="line">    .get(function(req,res)&#123;</div><div class="line">        res.send(&apos;GEt a random book&apos;);</div><div class="line">    &#125;)</div><div class="line">    .post(function(req,res)&#123;</div><div class="line">        res.send(&apos;Add a book&apos;);</div><div class="line">    &#125;)</div><div class="line">    .put(function(req,res)&#123;</div><div class="line">        res.send(&apos;Update the book&apos;);</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h2 id="express-Router"><a href="#express-Router" class="headerlink" title="express.Router"></a>express.Router</h2><p>==可使用express.Router类创建模块化、可挂载的路由句柄==。Router实例是一个完整的中间件和路由系统，因此常称其为一个”mini-app”。<br>下面的实例程序创建了一个路由模块，并加载了一个中间件，定义了一些路由，并且将它们挂载至应用的路径上。<br>在app目录下创建名为bird.js的文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var router = express.Router();</div><div class="line"></div><div class="line">//该路由使用的中间件</div><div class="line">router.use(function timeLog(req,res,next)&#123;</div><div class="line">    console.log(&apos;Time:&apos;+Date.now());</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">//定义网站主页的路由</div><div class="line">router.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    res.send(&apos;Birds home page&apos;);</div><div class="line">&#125;);</div><div class="line">//定义about页面的路由</div><div class="line">router.get(&apos;/about&apos;,function(req,res)&#123;</div><div class="line">   res.send(&apos;About birds&apos;); </div><div class="line">&#125;);</div><div class="line"></div><div class="line">module.exports=router;</div></pre></td></tr></table></figure>
+<p>然后在应用中加载路由模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line">var birds = require(&apos;./birds&apos;);//请求birds路由模块</div><div class="line"></div><div class="line">//在应用中加载路由中间件模块</div><div class="line">app.use(&apos;/birds&apos;, birds);</div><div class="line"></div><div class="line">//启动</div><div class="line">var server = app.listen(5000, function () &#123;</div><div class="line">    console.log(&apos;http is running at port 5000!&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>应用即可处理发自/birds和/birds/about的请求，并且调用为该路由指定的中间件timeLog。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -207,130 +270,120 @@ ga('send', 'pageview');
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/13/express路由/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/13/angular路由/" class="archive-article-date">
-  	<time datetime="2017-08-13T09:26:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/13/angular路由/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Angula路由</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/13/angular路由/">Angula路由</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/01/my-first-blog/" class="archive-article-date">
-  	<time datetime="2017-08-01T15:16:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/01/my-first-blog/">初出茅庐的召唤师</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工作</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'true'; // required: replace example with your forum shortname
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/01/hello-world/" class="archive-article-date">
-  	<time datetime="2017-08-01T13:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -353,8 +406,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
