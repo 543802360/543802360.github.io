@@ -9,13 +9,13 @@
   <title>express中的路由 | 召唤师峡谷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Angular路由见：Angular路由  今天学习了Angular中的路由，第一次知道了客户端路由的概念，以前的所接触的路由应该称为服务端路由，自己用的比较多的也就是express了  路由是指如何定义应用的端点（URIs）以及如何响应客户端的请求。路由是由一个URI、HTTP请求（GET、POST等）和若干个句柄组成，它的结构如下：app.METHOD(path,[callback……],c">
-<meta name="keywords" content="前端,express,路由">
+<meta name="keywords" content="express,路由,前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="express中的路由">
 <meta property="og:url" content="http://yoursite.com/2017/08/13/express路由/index.html">
 <meta property="og:site_name" content="召唤师峡谷">
 <meta property="og:description" content="Angular路由见：Angular路由  今天学习了Angular中的路由，第一次知道了客户端路由的概念，以前的所接触的路由应该称为服务端路由，自己用的比较多的也就是express了  路由是指如何定义应用的端点（URIs）以及如何响应客户端的请求。路由是由一个URI、HTTP请求（GET、POST等）和若干个句柄组成，它的结构如下：app.METHOD(path,[callback……],c">
-<meta property="og:updated_time" content="2017-08-13T09:46:25.000Z">
+<meta property="og:updated_time" content="2017-08-14T14:48:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="express中的路由">
 <meta name="twitter:description" content="Angular路由见：Angular路由  今天学习了Angular中的路由，第一次知道了客户端路由的概念，以前的所接触的路由应该称为服务端路由，自己用的比较多的也就是express了  路由是指如何定义应用的端点（URIs）以及如何响应客户端的请求。路由是由一个URI、HTTP请求（GET、POST等）和若干个句柄组成，它的结构如下：app.METHOD(path,[callback……],c">
@@ -214,7 +214,7 @@ app.all(">‘m-search’</a>是一个特殊的路由方法，没有任何http方
 <p>使用回调函数数组处理路由：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cb0 = <span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'CB0'</span>);</div><div class="line">    next();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> cb1 = <span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'CB1'</span>);</div><div class="line">    next();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> cb2 = <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello from C!'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">app.get(<span class="string">'/example/c'</span>,[cb0,cb1,cb2]);</div></pre></td></tr></table></figure>
 <p>混合使用函数和函数数组处理路由：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var cb0 = <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span></span> &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="string">'CB0'</span>);</div><div class="line">  <span class="built_in">next</span>();</div><div class="line">&#125;</div><div class="line"></div><div class="line">var cb1 = <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span></span> &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="string">'CB1'</span>);</div><div class="line">  <span class="built_in">next</span>();</div><div class="line">&#125;</div><div class="line"></div><div class="line">app.get(<span class="string">'/example/d'</span>, [cb0, cb1], <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span></span> &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="string">'response will be sent by the next function ...'</span>);</div><div class="line">  <span class="built_in">next</span>();</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span></span> &#123;</div><div class="line">  res.send(<span class="string">'Hello from D!'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h2 id="响应方法-终结请求-响应循环"><a href="#响应方法-终结请求-响应循环" class="headerlink" title="响应方法(终结请求-响应循环)"></a>响应方法(终结请求-响应循环)</h2><p><strong><em>下表中响应对象（res）的方法向客户端返回响应，终结请求响应的循环</em></strong>。如果在路由句柄中一个方法也不调用，来自客户端的请求会一直挂起。<br>方法 | 描述<br>—|—<br>res.download() |提示下载文件<br>res.end() |终结响应处理流程<br>res.json()|发送一个JSON格式的响应<br>res.jsonp()|发送一个支持JSONP的JSON格式的响应<br>res.redirect()|重定向请求<br>res.render()|渲染视图模板<br>res.send()|发送各种类型的响应<br>res.sendFile()|以八位字节流的形式发送文件<br>res.sendStatus()|设置响应状态代码，并将其以字符串形式作为响应体的一部分发送</p>
+<h2 id="响应方法-终结请求-响应循环"><a href="#响应方法-终结请求-响应循环" class="headerlink" title="响应方法(终结请求-响应循环)"></a>响应方法(终结请求-响应循环)</h2><p><strong><em>下表中响应对象（res）的方法向客户端返回响应，终结请求响应的循环</em></strong>。如果在路由句柄中一个方法也不调用，来自客户端的请求会一直挂起。<br>方法 | 描述<br>— | —<br>res.download() | 提示下载文件<br>res.end() | 终结响应处理流程<br>res.json()| 发送一个JSON格式的响应<br>res.jsonp()| 发送一个支持JSONP的JSON格式的响应<br>res.redirect()| 重定向请求<br>res.render()| 渲染视图模板<br>res.send()| 发送各种类型的响应<br>res.sendFile()| 以八位字节流的形式发送文件<br>res.sendStatus()| 设置响应状态代码，并将其以字符串形式作为响应体的一部分发送</p>
 <h2 id="app-route"><a href="#app-route" class="headerlink" title="app.route()"></a>app.route()</h2><p>可使用app.route()创建路由路径的==链式路由句柄==。由于路径在一个地方指定，这样做有助于==创建模块化的路由，而且减少了代码冗余和拼写错误==。请参考Router()文档了解更多有关路由的信息。<br>下面这个示例程序使用app.route()定义了链式路由句柄。</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">app.route(<span class="string">'/book'</span>)</div><div class="line">    .get(<span class="function"><span class="keyword">function</span><span class="params">(req,res)</span></span>&#123;</div><div class="line">        res.send(<span class="string">'GEt a random book'</span>);</div><div class="line">    &#125;)</div><div class="line">    .post(<span class="function"><span class="keyword">function</span><span class="params">(req,res)</span></span>&#123;</div><div class="line">        res.send(<span class="string">'Add a book'</span>);</div><div class="line">    &#125;)</div><div class="line">    .put(<span class="function"><span class="keyword">function</span><span class="params">(req,res)</span></span>&#123;</div><div class="line">        res.send(<span class="string">'Update the book'</span>);</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
 <h2 id="express-Router"><a href="#express-Router" class="headerlink" title="express.Router"></a>express.Router</h2><p>==可使用express.Router类创建模块化、可挂载的路由句柄==。Router实例是一个完整的中间件和路由系统，因此常称其为一个”mini-app”。<br>下面的实例程序创建了一个路由模块，并加载了一个中间件，定义了一些路由，并且将它们挂载至应用的路径上。<br>在app目录下创建名为bird.js的文件，内容如下：</p>
@@ -266,15 +266,15 @@ app.all(">‘m-search’</a>是一个特殊的路由方法，没有任何http方
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">express</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">路由</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -495,19 +495,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Angular</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,6 +504,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">路由</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
