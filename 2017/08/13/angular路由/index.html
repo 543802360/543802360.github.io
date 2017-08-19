@@ -249,7 +249,7 @@ ga('send', 'pageview');
 <li>RouterLink指令：用于创建各种路由链接</li>
 </ul>
 <h4 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h4><p>为了使用 Angular路由，首先从 @angular/router库中导入一些常量。在app.module.ts中导入</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; RouterModule, Routes &#125; <span class="keyword">from</span> <span class="string">"@angular/router"</span>;</div><div class="line"><span class="keyword">import</span> &#123; LocationStrategy, HashLocationStrategy &#125; <span class="keyword">from</span> <span class="string">"@angular/common"</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; RouterModule, Routes &#125; <span class="keyword">from</span> <span class="string">"@angular/router"</span>;</div><div class="line"><span class="keyword">import</span> &#123; LocationStrategy, HashLocationStrategy &#125; <span class="keyword">from</span> <span class="string">"@angular/common"</span>;</div></pre></td></tr></table></figure>
 <p>现在，我们可以开始定义路由器配置了。</p>
 <h4 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h4><p>为了定义应用的路由配置，首先创建一个Routes配置，然后使用RouterModule.forRoot(routes)来为应用程序提供使用路由必需的依赖。</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 路由配置</span></div><div class="line"><span class="comment"> */</span></div><div class="line">const routes: Routes = [</div><div class="line">  &#123;</div><div class="line"><span class="symbol">    path:</span> <span class="string">""</span>,</div><div class="line"><span class="symbol">    redirectTo:</span> <span class="string">"home"</span>,</div><div class="line"><span class="symbol">    pathMatch:</span> <span class="string">"full"</span></div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line"><span class="symbol">    path:</span> <span class="string">"home"</span>,</div><div class="line"><span class="symbol">    component:</span> HomeComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line"><span class="symbol">    path:</span> <span class="string">"about"</span>,</div><div class="line"><span class="symbol">    component:</span> AboutComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line"><span class="symbol">    path:</span> <span class="string">"contact"</span>,</div><div class="line"><span class="symbol">    component:</span> ContactComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line"><span class="symbol">    path:</span> <span class="string">"contactus"</span>,</div><div class="line"><span class="symbol">    redirectTo:</span> <span class="string">"contact"</span></div><div class="line">  &#125;</div><div class="line">];</div></pre></td></tr></table></figure>
@@ -553,19 +553,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">express</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">路由</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
