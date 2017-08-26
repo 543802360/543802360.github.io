@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/26/Angular指令/index.html">
 <meta property="og:site_name" content="召唤师峡谷">
 <meta property="og:description" content="Directive将一个TS类装饰为Angular指令，并收集指令配置元数据。">
-<meta property="og:updated_time" content="2017-08-26T11:10:34.000Z">
+<meta property="og:updated_time" content="2017-08-26T11:15:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular Directive（指令）">
 <meta name="twitter:description" content="Directive将一个TS类装饰为Angular指令，并收集指令配置元数据。">
@@ -267,7 +267,7 @@ ga('send', 'pageview');
 </ul>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>假设我们有一个选择器为 <strong><em>input[text=text]</em></strong> 的指令。 </p>
 <p>下列HTML：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>该指令将只会实例化 <strong><em><input type="text"></em></strong> 元素</p>
+<p>该指令将只会实例化 <input type="text">元素</p>
 <p>再比如，下面的指令类<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Directive &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"></div><div class="line"><span class="meta">@Directive</span>(&#123;</div><div class="line">  selector: <span class="string">"[appFirstDirective]"</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> FirstDirectiveDirective &#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>其匹配的模板中元素可以是</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="section">&lt;p appFirstDirective&gt;</span><span class="section">&lt;/p&gt;</span></div></pre></td></tr></table></figure>
@@ -435,6 +435,15 @@ ga('send', 'pageview');
   
 <nav id="article-nav">
   
+    <a href="/2017/08/26/使用Angular开发Cesium/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          使用Angular开发Cesium
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/08/26/Angular核心总结/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Angular核心总结</div>
@@ -585,6 +594,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Demo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">express</a>
               </li>
              
@@ -593,15 +606,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Demo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Cesium</a>
               </li>
             
             <div class="clearfix"></div>

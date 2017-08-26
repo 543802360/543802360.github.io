@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 前端 | 召唤师峡谷</title>
+  <title>使用Angular开发Cesium | 召唤师峡谷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="召唤师峡谷">
-<meta property="og:url" content="http://yoursite.com/tags/前端/index.html">
+  <meta name="description" content="前言前面angular-cli.json与Angular引入第三方库简单介绍了Angular中如何引入第三方库，以及Angular中使用leaflet示例。通过本篇博文你将了解并学会以下几点：  Angular中如何引入Cesium 封装自己得Viewer组件 创建一个Angular属性型指令 依赖注入">
+<meta name="keywords" content="Angular,Cesium">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Angular开发Cesium">
+<meta property="og:url" content="http://yoursite.com/2017/08/26/使用Angular开发Cesium/index.html">
 <meta property="og:site_name" content="召唤师峡谷">
+<meta property="og:description" content="前言前面angular-cli.json与Angular引入第三方库简单介绍了Angular中如何引入第三方库，以及Angular中使用leaflet示例。通过本篇博文你将了解并学会以下几点：  Angular中如何引入Cesium 封装自己得Viewer组件 创建一个Angular属性型指令 依赖注入">
+<meta property="og:updated_time" content="2017-08-26T13:54:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="召唤师峡谷">
+<meta name="twitter:title" content="使用Angular开发Cesium">
+<meta name="twitter:description" content="前言前面angular-cli.json与Angular引入第三方库简单介绍了Angular中如何引入第三方库，以及Angular中使用leaflet示例。通过本篇博文你将了解并学会以下几点：  Angular中如何引入Cesium 封装自己得Viewer组件 创建一个Angular属性型指令 依赖注入">
   
     <link rel="alternative" href="/atom.xml" title="召唤师峡谷" type="application/atom+xml">
   
@@ -208,36 +213,124 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-使用Angular开发Cesium" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/17/angular-cli.json与Angular引入第三方库/" class="archive-article-date">
-  	<time datetime="2017-08-17T14:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/17/angular-cli.json与Angular引入第三方库/">Angular-cli.json与Angular引入第三方库</a>
+    <h1 class="article-title" itemprop="name">
+      使用Angular开发Cesium
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/26/使用Angular开发Cesium/" class="archive-article-date">
+  	<time datetime="2017-08-26T13:05:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面<a href="https://543802360.github.io/2017/08/17/angular-cli.json%E4%B8%8EAngular%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" target="_blank" rel="external">angular-cli.json与Angular引入第三方库</a>简单介绍了Angular中如何引入第三方库，以及Angular中使用leaflet示例。通过本篇博文你将了解并学会以下几点：</p>
+<ul>
+<li>Angular中如何引入<a href="https://cesiumjs.org/" target="_blank" rel="external">Cesium</a></li>
+<li>封装自己得Viewer组件</li>
+<li>创建一个Angular属性型指令</li>
+<li>依赖注入</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h2 id="Angular中引入Cesium"><a href="#Angular中引入Cesium" class="headerlink" title="Angular中引入Cesium"></a>Angular中引入Cesium</h2><p>首先用angular/cli创建一个项目</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng <span class="keyword">new</span> <span class="type">ng</span>-zorro-cesium</div></pre></td></tr></table></figure>
+<p>进入项目根目录，安装所有依赖包</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd ng-zorro-cesium</div><div class="line">npm <span class="keyword">install</span></div><div class="line"><span class="comment">## or</span></div><div class="line">cnpm <span class="keyword">install</span></div></pre></td></tr></table></figure>
+<p>如有问题，参照<a href="https://543802360.github.io/2017/08/14/angular-cli/" target="_blank" rel="external">https://543802360.github.io/2017/08/14/angular-cli/</a>解决。  </p>
+<p>接下来安装cesium</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install cesium --<span class="built_in">save</span>-<span class="built_in">dev</span></div></pre></td></tr></table></figure>
+<p>在angular-cli中进行配置(见注释)：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="string">"apps"</span>: [</div><div class="line">  &#123;</div><div class="line">    <span class="string">"root"</span>: <span class="string">"src"</span>,</div><div class="line">    <span class="string">"outDir"</span>: <span class="string">"dist"</span>,</div><div class="line">    <span class="string">"assets"</span>: [</div><div class="line">      <span class="string">"assets"</span>,</div><div class="line">      <span class="string">"favicon.ico"</span>,</div><div class="line">      &#123;</div><div class="line">         <span class="comment">//配置资源</span></div><div class="line">        <span class="string">"glob"</span>: <span class="string">"**/*"</span>,</div><div class="line">        <span class="string">"input"</span>: <span class="string">"../node_modules/cesium/Build/Cesium"</span>,</div><div class="line">        <span class="string">"output"</span>: <span class="string">"./assets/cesium"</span></div><div class="line">      &#125;</div><div class="line">    ],</div><div class="line">    <span class="string">"index"</span>: <span class="string">"index.html"</span>,</div><div class="line">    <span class="string">"main"</span>: <span class="string">"main.ts"</span>,</div><div class="line">    <span class="string">"polyfills"</span>: <span class="string">"polyfills.ts"</span>,</div><div class="line">    <span class="string">"prefix"</span>: <span class="string">"qk-earth"</span>,</div><div class="line">    <span class="string">"test"</span>: <span class="string">"test.ts"</span>,</div><div class="line">    <span class="string">"tsconfig"</span>: <span class="string">"tsconfig.app.json"</span>,</div><div class="line">    <span class="string">"testTsconfig"</span>: <span class="string">"tsconfig.spec.json"</span>,</div><div class="line">    <span class="string">"styles"</span>: [</div><div class="line">      <span class="comment">//配置样式</span></div><div class="line">      <span class="string">"../node_modules/cesium/Build/Cesium/Widgets/widgets.css"</span>,</div><div class="line">      <span class="string">"styles.css"</span></div><div class="line">    ],</div><div class="line">    <span class="string">"scripts"</span>: [</div><div class="line">      <span class="comment">//脚本</span></div><div class="line">      <span class="string">"../node_modules/cesium/Build/Cesium/Cesium.js"</span>],</div><div class="line">    <span class="string">"environmentSource"</span>: <span class="string">"environments/environment.ts"</span>,</div><div class="line">    <span class="string">"environments"</span>: &#123;</div><div class="line">      <span class="string">"dev"</span>: <span class="string">"environments/environment.ts"</span>,</div><div class="line">      <span class="string">"prod"</span>: <span class="string">"environments/environment.prod.ts"</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">],</div></pre></td></tr></table></figure>
+<p>在mait.ts中设置 <strong><em>window[“CESIUM_BASE_URL”] = “/assets/cesium”</em></strong> ,它会引导浏览器加载cesium的各种资源文件</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; enableProdMode &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"><span class="keyword">import</span> &#123; platformBrowserDynamic &#125; <span class="keyword">from</span> <span class="string">"@angular/platform-browser-dynamic"</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; AppModule &#125; <span class="keyword">from</span> <span class="string">"./app/components/app.module"</span>;</div><div class="line"><span class="keyword">import</span> &#123; environment &#125; <span class="keyword">from</span> <span class="string">"./environments/environment"</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (environment.production) &#123;</div><div class="line">  enableProdMode();</div><div class="line">&#125;</div><div class="line"><span class="comment">//CESIUM_BASE_URL</span></div><div class="line"><span class="built_in">window</span>[<span class="string">"CESIUM_BASE_URL"</span>] = <span class="string">"/assets/cesium"</span>;</div><div class="line"></div><div class="line">platformBrowserDynamic().bootstrapModule(AppModule);</div></pre></td></tr></table></figure>
+<p>在typings.d.ts中声明全局变量Cesium：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">declare</span> <span class="keyword">var</span> Cesium: <span class="built_in">any</span>;</div></pre></td></tr></table></figure>
+<p>以上就配置完毕了。接下来封装Viewer组件。</p>
+<hr>
+<h2 id="封装Viewer组件"><a href="#封装Viewer组件" class="headerlink" title="封装Viewer组件"></a>封装Viewer组件</h2><p>使用以下命令创建一个viewer组件</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng g <span class="keyword">c</span> components/viewer</div></pre></td></tr></table></figure>
+<p>viewer.component.ts,一个空组件，实现了OnInit声明周期钩子</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">  selector: <span class="string">"qk-earth-viewer"</span>,</div><div class="line">  templateUrl: <span class="string">"./viewer.component.html"</span>,</div><div class="line">  styleUrls: [<span class="string">"./viewer.component.css"</span>]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> ViewerComponent <span class="keyword">implements</span> OnInit &#123;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;&#125;</div><div class="line"></div><div class="line">  <span class="comment">//组件初始化时要干的事情</span></div><div class="line">  ngOnInit() &#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后再创建一个属性型指令,我们要在viewer组件的模板中使用这个属性型指令。 </p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng g d components<span class="regexp">/viewer/</span>cesium-viewer</div></pre></td></tr></table></figure>
+<p>cesium-viewer.directive.ts源码文件：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  Directive,</div><div class="line">  ElementRef,</div><div class="line">  Input,</div><div class="line">  OnInit</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"></div><div class="line"><span class="meta">@Directive</span>(&#123;</div><div class="line">  selector: <span class="string">"qkEarthCesiumViewer"</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> CesiumViewerDirective <span class="keyword">implements</span> OnInit &#123;</div><div class="line">  <span class="comment">/**</span></div><div class="line"><span class="comment">   *</span></div><div class="line"><span class="comment">   * 属性绑定输入。场景配置项</span></div><div class="line"><span class="comment">   * @type &#123;*&#125;</span></div><div class="line"><span class="comment">   * @memberof CesiumViewerDirective</span></div><div class="line"><span class="comment">   */</span></div><div class="line">  <span class="meta">@Input</span>() options: <span class="built_in">any</span>;</div><div class="line">  <span class="keyword">public</span> viewer: <span class="built_in">any</span>;</div><div class="line">  <span class="comment">//注入ElementRef</span></div><div class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> el: ElementRef</span>) &#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  ngOnInit() &#123;</div><div class="line">    <span class="comment">//Called after the constructor, initializing input properties, and the first call to ngOnChanges.</span></div><div class="line">    <span class="comment">//Add 'implements OnInit' to the class.</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>import语句制定了从Angular的core库导入的一些库</p>
+<ul>
+<li>Directive提供了 <strong><em>@Directive</em></strong> 装饰器功能。</li>
+<li>ElementRef 注入到指令构造函数中，这样代码就可以访问DOM元素了。</li>
+<li>Input将数据从绑定表达式传达到指令中。  </li>
+</ul>
+<p>然后，@Directive装饰器函数以配置对象参数的形式，包含了指令的元数据。它的CSS选择器是一个标签名，如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">qkEarthCesiumViewer</span>&gt;</span><span class="tag">&lt;/<span class="name">qkEarthCesiumViewer</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>@Directive元数据之后就是该指令的控制器类，名叫 <strong><em>CesiumViewerDirective</em></strong> ，它包含该指令的逻辑。然后导出 <strong><em>CesiumViewerDirective</em></strong> ，以便让它能从其他组件中访问到。</p>
+<p>这里我声明了两个属性：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Input</span>() options: <span class="built_in">any</span>;</div><div class="line"><span class="keyword">public</span> viewer: <span class="built_in">any</span>;</div></pre></td></tr></table></figure>
+<p>其中options使用了 <strong><em>@Input()</em></strong> 注解，接收父组件传递的参数</p>
+<p>现在，我们要使用这个新的 <strong><em>CesiumViewerDirective</em></strong> ,我们把这个指令放到viewer.component.ts的 <strong><em>@Component</em></strong> 元数据的 <strong><em>template</em></strong> 配置项中,并绑定了options属性输入</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">  selector: <span class="string">"qk-earth-viewer"</span>,</div><div class="line">  template: <span class="string">`</span></div><div class="line"><span class="string">  &lt;qkEarthCesiumViewer [options]="options"&gt;&lt;/qkEarthCesiumViewer&gt;</span></div><div class="line"><span class="string">  `</span>,</div><div class="line">  styleUrls: [<span class="string">"./viewer.component.css"</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>然后我们在 <strong><em>ngOnInit()</em></strong> 钩子函数中初始化了options参数（一般不在构造函数中初始化）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="string">import</span> <span class="string">&#123;</span> <span class="string">Component,</span> <span class="string">OnInit</span> <span class="string">&#125;</span> <span class="string">from</span> <span class="string">"@angular/core"</span><span class="string">;</span></div><div class="line"><span class="string">@Component(&#123;</span></div><div class="line"><span class="attr">  selector:</span> <span class="string">"qk-earth-viewer"</span><span class="string">,</span></div><div class="line"><span class="attr">  template:</span> <span class="string">`</span></div><div class="line">  <span class="string">&lt;qkEarthCesiumViewer</span> <span class="string">[options]="options"&gt;&lt;/qkEarthCesiumViewer&gt;</span></div><div class="line">  <span class="string">`,</span></div><div class="line"><span class="attr">  styleUrls:</span> <span class="string">["./viewer.component.css"]</span></div><div class="line"><span class="string">&#125;)</span></div><div class="line"><span class="string">export</span> <span class="string">class</span> <span class="string">ViewerComponent</span> <span class="string">implements</span> <span class="string">OnInit</span> <span class="string">&#123;</span></div><div class="line">  </div><div class="line">  <span class="string">public</span> <span class="string">options</span> <span class="string">=</span> <span class="literal">null</span><span class="string">;</span></div><div class="line">  <span class="string">/**</span></div><div class="line">   <span class="string">*</span> <span class="string">构造函数</span></div><div class="line">   <span class="string">*</span> <span class="string">@memberof</span> <span class="string">ViewerComponent</span></div><div class="line">   <span class="string">*/</span></div><div class="line">  <span class="string">constructor()</span> <span class="string">&#123;&#125;</span></div><div class="line"></div><div class="line">  <span class="string">//组件初始化时要干的事情</span></div><div class="line">  <span class="string">ngOnInit()</span> <span class="string">&#123;</span></div><div class="line">    <span class="string">this.options</span> <span class="string">=</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">      animation:</span> <span class="literal">false</span><span class="string">,</span></div><div class="line"><span class="attr">      baseLayerPicker:</span> <span class="literal">true</span><span class="string">,</span></div><div class="line"><span class="attr">      fullscreenButton:</span> <span class="literal">true</span><span class="string">,</span></div><div class="line"><span class="attr">      geocoder:</span> <span class="literal">true</span><span class="string">,</span></div><div class="line"><span class="attr">      homeButton:</span> <span class="literal">true</span><span class="string">,</span></div><div class="line"><span class="attr">      terrainProviderViewModels:</span> <span class="string">[],</span></div><div class="line"><span class="attr">      infoBox:</span> <span class="literal">true</span><span class="string">,</span></div><div class="line"><span class="attr">      mapProjection:</span> <span class="string">new</span> <span class="string">Cesium.GeographicProjection(),</span></div><div class="line"><span class="attr">      navigationHelpButton:</span> <span class="literal">true</span><span class="string">,</span></div><div class="line"><span class="attr">      sceneModePicker:</span> <span class="literal">false</span><span class="string">,</span></div><div class="line"><span class="attr">      selectionIndicator:</span> <span class="literal">true</span><span class="string">,</span></div><div class="line"><span class="attr">      scene3DOnly:</span> <span class="literal">true</span><span class="string">,</span></div><div class="line"><span class="attr">      timeline:</span> <span class="literal">false</span><span class="string">,</span></div><div class="line"><span class="attr">      imageryProvider:</span> <span class="string">new</span> <span class="string">Cesium.WebMapTileServiceImageryProvider(&#123;</span></div><div class="line"><span class="attr">        url:</span></div><div class="line">          <span class="string">"http://&#123;s&#125;.tianditu.com/img_w/wmts?service=WMTS&amp;version=1.0.0&amp;request=GetTile&amp;ti"</span> <span class="string">+</span></div><div class="line">          <span class="string">"lematrix=&#123;TileMatrix&#125;&amp;layer=img&amp;style=&#123;style&#125;&amp;tilerow=&#123;TileRow&#125;&amp;tilecol=&#123;TileCol"</span> <span class="string">+</span></div><div class="line">          <span class="string">"&#125;&amp;tilematrixset=&#123;TileMatrixSet&#125;&amp;format=tiles"</span><span class="string">,</span></div><div class="line"><span class="attr">        layer:</span> <span class="string">"img"</span><span class="string">,</span></div><div class="line"><span class="attr">        style:</span> <span class="string">"default"</span><span class="string">,</span></div><div class="line"><span class="attr">        format:</span> <span class="string">"tiles"</span><span class="string">,</span></div><div class="line"><span class="attr">        tileMatrixSetID:</span> <span class="string">"w"</span><span class="string">,</span></div><div class="line"><span class="attr">        credit:</span> <span class="string">new</span> <span class="string">Cesium.Credit("天地图影像"),</span></div><div class="line"><span class="attr">        subdomains:</span> <span class="string">["t0",</span> <span class="string">"t1"</span><span class="string">,</span> <span class="string">"t2"</span><span class="string">,</span> <span class="string">"t3"</span><span class="string">,</span> <span class="string">"t4"</span><span class="string">,</span> <span class="string">"t5"</span><span class="string">,</span> <span class="string">"t6"</span><span class="string">,</span> <span class="string">"t7"</span><span class="string">],</span></div><div class="line"><span class="attr">        minimumLevel:</span> <span class="number">0</span><span class="string">,</span></div><div class="line"><span class="attr">        maximumLevel:</span> <span class="number">19</span></div><div class="line">      <span class="string">&#125;),</span></div><div class="line">     </div><div class="line"><span class="attr">      vrButton:</span> <span class="literal">true</span></div><div class="line">    <span class="string">&#125;;</span></div><div class="line">  <span class="string">&#125;</span></div><div class="line"></div><div class="line"><span class="string">&#125;</span></div></pre></td></tr></table></figure>
+<p>我们要在 <strong><em>CesiumViewerDirective</em></strong> 中完成初始化工作：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  Directive,</div><div class="line">  ElementRef,</div><div class="line">  Input,</div><div class="line">  OnInit</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"></div><div class="line"><span class="meta">@Directive</span>(&#123;</div><div class="line">  selector: <span class="string">"qkEarthCesiumViewer"</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> CesiumViewerDirective <span class="keyword">implements</span> OnInit &#123;</div><div class="line">  <span class="comment">/**</span></div><div class="line"><span class="comment">   *</span></div><div class="line"><span class="comment">   * 属性绑定输入。场景配置项</span></div><div class="line"><span class="comment">   * @type &#123;*&#125;</span></div><div class="line"><span class="comment">   * @memberof CesiumViewerDirective</span></div><div class="line"><span class="comment">   */</span></div><div class="line">  <span class="meta">@Input</span>() options: <span class="built_in">any</span>;</div><div class="line">  <span class="keyword">private</span> viewer: <span class="built_in">any</span>;</div><div class="line">  <span class="keyword">private</span> cesium: <span class="built_in">any</span>;</div><div class="line">  <span class="comment">//注入ElementRef</span></div><div class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> el: ElementRef</span>) &#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  ngOnInit() &#123;</div><div class="line">    <span class="keyword">this</span>.cesium = Cesium;</div><div class="line">    <span class="keyword">this</span>.cesium.Camera.DEFAULT_VIEW_RECTANGLE = <span class="keyword">new</span> <span class="keyword">this</span>.cesium.Rectangle</div><div class="line">      .fromDegrees(<span class="number">75.0</span>, <span class="number">-30.0</span>, <span class="number">130.0</span>, <span class="number">90.0</span>);</div><div class="line">    <span class="keyword">this</span>.cesium.Camera.DEFAULT_VIEW_FACTOR = <span class="number">0</span>;</div><div class="line">    <span class="keyword">if</span> (options) &#123;</div><div class="line">      <span class="keyword">this</span>.viewer = <span class="keyword">new</span> <span class="keyword">this</span>.cesium.Viewer(<span class="keyword">this</span>.el.nativeElement, options);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="comment">//默认参数</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在我们的组件写好了，在顶级组件模板中引入即可，app.component.ts:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">  selector: <span class="string">"app-root"</span>,</div><div class="line">  template:<span class="string">`</span></div><div class="line"><span class="string">    &lt;qk-earth-viewer&gt;&lt;/qk-earth-viewer&gt;</span></div><div class="line"><span class="string">  `</span>,</div><div class="line">  styleUrls: [<span class="string">"./app.component.css"</span>]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent &#123;</div><div class="line">  title = <span class="string">"app"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在app.component.css中定义样式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">qk-earth-viewer &#123;</div><div class="line">  width: 100%;</div><div class="line">  height: 100%;</div><div class="line">  margin: 0;</div><div class="line">  padding: 0;</div><div class="line">  border: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后，记得在app.module.ts中声明所有组件、指令：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//angular</span></div><div class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">"@angular/platform-browser"</span>;</div><div class="line"><span class="keyword">import</span> &#123; BrowserAnimationsModule &#125; <span class="keyword">from</span> <span class="string">"@angular/platform-browser/animations"</span>;</div><div class="line"><span class="keyword">import</span> &#123; NgModule &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"></div><div class="line"><span class="comment">//component</span></div><div class="line"><span class="keyword">import</span> &#123; AppComponent &#125; <span class="keyword">from</span> <span class="string">"./app.component"</span>;</div><div class="line"><span class="keyword">import</span> &#123; ViewerComponent &#125; <span class="keyword">from</span> <span class="string">"./viewer/viewer.component"</span>;</div><div class="line"><span class="keyword">import</span> &#123; CesiumViewerDirective &#125; <span class="keyword">from</span> <span class="string">"./viewer/cesium-viewer.directive"</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  declarations: [</div><div class="line">    AppComponent,</div><div class="line">    ViewerComponent,</div><div class="line">    CesiumViewerDirective</div><div class="line">  ],</div><div class="line">  imports: [</div><div class="line">    BrowserModule,</div><div class="line">    BrowserAnimationsModule</div><div class="line">  ],</div><div class="line">  providers: [],</div><div class="line">  bootstrap: [AppComponent]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123;&#125;</div></pre></td></tr></table></figure>
+<p>现在基本完成了Angular中Cesium的入门工作，但是这里还存在着不少问题，例如，viewer肯定需要在多个组件中共享，例如将要封装的场景设置组件、图层控制组件、绘制组件等等，这就需要使用依赖注入，将viewer的初始化工作交给服务去做，然后在整个app中共享这一服务。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>源码中，已经解决了上面的问题，后续也将封装其他常用的组件</p>
+<p>示例地址：<a href="https://543802360.github.io/demo/ng-zorro-cesium" target="_blank" rel="external">https://543802360.github.io/demo/ng-zorro-cesium</a><br>源码：<a href="https://github.com/543802360/Angular_learning/tree/master/ng-zorro-cesium" target="_blank" rel="external">https://github.com/543802360/Angular_learning/tree/master/ng-zorro-cesium</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfb.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -247,113 +340,126 @@ ga('send', 'pageview');
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Cesium</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/26/使用Angular开发Cesium/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/13/express路由/" class="archive-article-date">
-  	<time datetime="2017-08-13T09:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/26/Angular指令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Angular Directive（指令）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/13/express路由/">express中的路由</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">express</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">路由</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/13/angular路由/" class="archive-article-date">
-  	<time datetime="2017-08-13T09:26:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/13/angular路由/">Angula路由</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'true'; // required: replace example with your forum shortname
 
-    
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
 
 
           </div>
@@ -376,9 +482,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
