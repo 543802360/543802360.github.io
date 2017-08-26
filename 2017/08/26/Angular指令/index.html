@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>召唤师峡谷</title>
+  <title>Angular Directive（指令） | 召唤师峡谷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="召唤师峡谷">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Directive将一个TS类装饰为Angular指令，并收集指令配置元数据。">
+<meta name="keywords" content="Angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular Directive（指令）">
+<meta property="og:url" content="http://yoursite.com/2017/08/26/Angular指令/index.html">
 <meta property="og:site_name" content="召唤师峡谷">
+<meta property="og:description" content="Directive将一个TS类装饰为Angular指令，并收集指令配置元数据。">
+<meta property="og:updated_time" content="2017-08-26T11:10:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="召唤师峡谷">
+<meta name="twitter:title" content="Angular Directive（指令）">
+<meta name="twitter:description" content="Directive将一个TS类装饰为Angular指令，并收集指令配置元数据。">
   
     <link rel="alternative" href="/atom.xml" title="召唤师峡谷" type="application/atom+xml">
   
@@ -208,16 +213,14 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Angular指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Angular指令" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/Angular指令/">Angular Directive（指令）</a>
+    <h1 class="article-title" itemprop="name">
+      Angular Directive（指令）
     </h1>
   
 
@@ -231,501 +234,127 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Directive"><a href="#Directive" class="headerlink" title="Directive"></a>Directive</h1><p>将一个TS类装饰为Angular指令，并收集指令配置元数据。</p>
-        
-          <a class="article-more-a" href="/2017/08/26/Angular指令/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/26/Angular指令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Angular核心总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/Angular核心总结/">Angular核心总结</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/26/Angular核心总结/" class="archive-article-date">
-  	<time datetime="2017-08-26T04:32:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Angular是什么"><a href="#Angular是什么" class="headerlink" title="Angular是什么"></a>Angular是什么</h1><p>Angular是一个用HTML和JavaScript或者一个可以编译成JavaScript的语言（如TypeScript）来构建客户端应用的框架。该框架包括一些列库，有些是核心库，有些是可选库。</p>
-<p>AngularJS指Angular1.X版本，现已经停止更新了。Angular专指Angular2+版本。</p>
-<p>我们这样写Angular应用：用Angular扩展语法编写HTML <strong><em>模板</em></strong>，用 <strong><em>组件类</em></strong> 管理这些模板，用 <strong><em>服务</em></strong> 添加应用逻辑，用 <strong><em>模块</em></strong> 打包发布组件与服务。然后通过引导根模块来启动该应用。Angular在浏览器中接管、展现应用的内容，并根据我们提供的操作指令响应用户的交互。</p>
+<a id="more"></a>
+<h2 id="元数据概览"><a href="#元数据概览" class="headerlink" title="元数据概览"></a>元数据概览</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">@Directive</span>(&#123; </div><div class="line">  selector?: <span class="built_in">string</span></div><div class="line">  inputs?: <span class="built_in">string</span>[]</div><div class="line">  outputs?: <span class="built_in">string</span>[]</div><div class="line">  host?: &#123;[key: <span class="built_in">string</span>]: <span class="built_in">string</span>&#125;</div><div class="line">  providers?: Provider[]</div><div class="line">  exportAs?: <span class="built_in">string</span></div><div class="line">  queries?: &#123;[key: <span class="built_in">string</span>]: <span class="built_in">any</span>&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>采用angular-cli脚手架进行开发。在项目根目录下，运行下面命令：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng g d <span class="built_in">components</span>/firstDirective</div></pre></td></tr></table></figure>
+<p>first-directive.directive.ts如下：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Directive &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"></div><div class="line"><span class="meta">@Directive</span>(&#123;</div><div class="line">  selector: <span class="string">"[appFirstDirective]"</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> FirstDirectiveDirective &#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p><strong><em>Directive</em></strong> 装饰器允许你将一个类标记为Angular指令，并且它提供了决定指令在运行时如何处理、实例化以及使用的附加元数据。</p>
+<p>指令允许你讲行为附加到DOM元素中。</p>
+<p><strong><em>一个指令必须从属于一个NgModule</em></strong>，这样才能在其他指令、组件或者应用程序中使用该指令。要指定一个指令是NgModule的成员，应该将其列在NgModule的declarations字段数组中。  </p>
+<p>除了通过<strong><em>Directive装饰器</em></strong>指定的元数据配置之外，指令也可以通过实现各种生命周期钩子来控制其在各个生命中期时的行为。</p>
+<p><strong>元数据属性：</strong></p>
+<ul>
+<li>exportAs - 指定可以在模板中使用的指令名称，将该指令通过 <strong><em>#语法解析</em></strong> 赋值给局部变量。</li>
+<li>host - 配置宿主元素的事件、行为、特性（attributes）以及属性（properties）。</li>
+<li>inputs - 指令的<strong><em>输入属性</em></strong>名称数组；用于绑定组件输入</li>
+<li>outputs - 指令的<strong><em>输出事件</em></strong>名称数组；</li>
+<li>providers - 组件及其子组件的服务提供商</li>
+<li>queries - 配置能够注入该组件的queries</li>
+<li>selector - css选择器，在模板中识别这个指令或组件</li>
+</ul>
 <hr>
-        
-          <a class="article-more-a" href="/2017/08/26/Angular核心总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/26/Angular核心总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-demo集中营" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/21/demo集中营/">Demo集中营</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/21/demo集中营/" class="archive-article-date">
-  	<time datetime="2017-08-21T12:57:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="ng-leaflet"><a href="#ng-leaflet" class="headerlink" title="ng-leaflet"></a>ng-leaflet</h2><p>这是一个采用angular4.0、leaflet1.0 and ng-zorro components搭建的webgis demo</p>
-        
-          <a class="article-more-a" href="/2017/08/21/demo集中营/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Demo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/21/demo集中营/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-angular-cli.json与Angular引入第三方库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/17/angular-cli.json与Angular引入第三方库/">Angular-cli.json与Angular引入第三方库</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/17/angular-cli.json与Angular引入第三方库/" class="archive-article-date">
-  	<time datetime="2017-08-17T14:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="angular-cli-json"><a href="#angular-cli-json" class="headerlink" title="angular-cli.json"></a>angular-cli.json</h2><p>angular-cli.json是Angular CLI的配置文件。 在这个文件中，我们可以设置一系列默认值，还可以配置项目编译时要包含的那些文件。</p>
-<p>最常用的几个：</p>
+<h2 id="元数据属性"><a href="#元数据属性" class="headerlink" title="元数据属性"></a>元数据属性</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">selector?: <span class="built_in">string</span></div></pre></td></tr></table></figure>
+<p>CSS选择器，以便从模板中识别出关联到这个指令的 HTML。</p>
+<p>selector的声明可以是以下方式：</p>
 <ul>
-<li>assets指定资源文件目录</li>
-<li>main.ts 指定ng应用入口</li>
-<li>index.html 指定ng应用首页</li>
-<li>styles:[] 指定全局样式，用于第三方库的打包 </li>
-<li>scripts:[] 指定全局脚本，用于打包第三方库，构建是进行打包</li>
+<li><strong>element-name</strong>：通过标签名称选择</li>
+<li><strong>.class</strong>：通过类名选择</li>
+<li><strong>[attribute]</strong>：通过属性名称选择（cli默认生成的是这种方式）</li>
+<li><strong>[attribute=value]</strong>：通过属性名称和属性选择</li>
+<li><strong>:not[sub_selector]</strong>：只选择和sub_selector不匹配的元素</li>
+<li><strong>selector1,selector2</strong>：选择匹配selector1或selector2的元素</li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/08/17/angular-cli.json与Angular引入第三方库/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/17/angular-cli.json与Angular引入第三方库/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-angular-cli" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/14/angular-cli/">Angular/cli介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/14/angular-cli/" class="archive-article-date">
-  	<time datetime="2017-08-14T14:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Angular command line interface，Angular脚手架。一般来说，脚手架是帮你减少「为减少重复性工作而做的重复性工作」的工具。  </p>
-<p>这些工具能够帮助你更好的去完成前端代码构建。传统中我们写前端代码并不需要所谓的脚手架，一个html加上css和js，你所需要的工具一个编辑器就够了。但是随着web2.0的发展，页面越来越丰富，尤其是一些大型的、页面数据交互比较复杂的网站，为了优化前端工作，诞生了很多工具。比如让你写css更方便的less，比如当下流行的用将html模板直接用ts（或js）来写的Angular，以及实现js模块化以及前端代码打包的工具webpack。</p>
-        
-          <a class="article-more-a" href="/2017/08/14/angular-cli/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/14/angular-cli/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-express路由" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/13/express路由/">express中的路由</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/13/express路由/" class="archive-article-date">
-  	<time datetime="2017-08-13T09:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Angular路由见：<a href="https://543802360.github.io/2017/08/13/angular%E8%B7%AF%E7%94%B1/" target="_blank" rel="external">Angular路由</a></p>
-<blockquote>
-<p>今天学习了Angular中的路由，第一次知道了客户端路由的概念，以前的所接触的路由应该称为服务端路由，自己用的比较多的也就是express了</p>
-</blockquote>
-<p>路由是指如何定义应用的端点（URIs）以及如何响应客户端的请求。<br>路由是由一个URI、HTTP请求（GET、POST等）和若干个句柄组成，它的结构如下：app.METHOD(path,[callback……],callback)，app是express对象的一个实例，METHOD是一个HTTP请求方法（get、post），path是服务器上的路径（相对路径），callback是当路由匹配时要执行的函数。  </p>
-        
-          <a class="article-more-a" href="/2017/08/13/express路由/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">express</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">路由</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/13/express路由/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-angular路由" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/13/angular路由/">Angula路由</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/13/angular路由/" class="archive-article-date">
-  	<time datetime="2017-08-13T09:26:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>在web开发中，路由是指将 <strong>应用划分成多个分区</strong>，通常是按照从浏览器的URL衍生出来的规则进行分割。  </p>
-<h3 id="为什么需要路由"><a href="#为什么需要路由" class="headerlink" title="为什么需要路由"></a>为什么需要路由</h3><p>在应用程序中定义路由非常有用，因为我们可以：</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>假设我们有一个选择器为 <strong><em>input[text=text]</em></strong> 的指令。 </p>
+<p>下列HTML：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>该指令将只会实例化 <strong><em><input type="text"></em></strong> 元素</p>
+<p>再比如，下面的指令类<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Directive &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"></div><div class="line"><span class="meta">@Directive</span>(&#123;</div><div class="line">  selector: <span class="string">"[appFirstDirective]"</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> FirstDirectiveDirective &#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其匹配的模板中元素可以是</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="section">&lt;p appFirstDirective&gt;</span><span class="section">&lt;/p&gt;</span></div></pre></td></tr></table></figure>
+<p>如果将selector改为：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">selector: </span><span class="string">"[appFirstDirective],appFirstDirective"</span></div></pre></td></tr></table></figure>
+<p>其匹配的模板元素可以是：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="section">&lt;p appFirstDirective&gt;</span><span class="section">&lt;/p&gt;</span></div><div class="line"></div><div class="line"><span class="section">&lt;appFirstDirective&gt;</span><span class="section">&lt;/appFirstDirective&gt;</span></div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">inputs?: <span class="built_in">string</span>[]</div></pre></td></tr></table></figure>
+<p>枚举了指令的数据绑定输入属性集合。  </p>
+<p>Angular通过变化检测自动更新输入属性值</p>
+<p>inputs输入字符串列表可以使用 <strong>directiveProperty：bindingProperty</strong>（指令实例属性：标签元素属性）的格式。</p>
+<hr>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">outputs?: <span class="built_in">string</span>[]</div></pre></td></tr></table></figure>
+<p>枚举事件绑定输出属性集合。  </p>
+<p>当output属性发射一个事件，将触发在模板中绑定的事件处理器</p>
+<p>outputs字符串列表可以使用 <strong>directiveProperty：bindingProperty</strong>（指令实例属性：标签元素属性）的格式。</p>
+<hr>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">host?: &#123;[<span class="built_in">key</span>: <span class="keyword">string</span>]: <span class="keyword">string</span>&#125;</div></pre></td></tr></table></figure>
+<p>配置宿主元素的事件、行为、特性（attributes）以及属性（properties）</p>
+<h2 id="Host-Listeners（宿主事件监听）"><a href="#Host-Listeners（宿主事件监听）" class="headerlink" title="Host Listeners（宿主事件监听）"></a>Host Listeners（宿主事件监听）</h2><p>通过一组 <strong>(event)：method</strong>键值对指定指令监听DOM的哪些事件 </p>
 <ul>
-<li>将应用程序划分为多个分区</li>
-<li>维护应用程序的状态</li>
-<li>基于某些规则保护应用分区</li>
+<li>event：指令监听的DOM事件</li>
+<li>method：事件发生时要执行的函数。如果函数返回 <strong>false</strong>，将在DOM事件上应用<strong>preventDefault</strong></li>
+<li>如果要监听全局事件，需要在事件名称前添加 <strong>window、document、body</strong>这些目标  </li>
+<li>当写指令的事件绑定时，仍然可以应用局部变量 <strong>$event</strong>。</li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/08/13/angular路由/#more">more >></a>
-        
+<p><strong>例子</strong><br>下面例子声明了一个监听click事件的指令</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Directive(&#123;</span></div><div class="line"><span class="meta">  selector: <span class="meta-string">'button[counting]'</span>,</span></div><div class="line"><span class="meta">  host: &#123;</span></div><div class="line"><span class="meta">    <span class="meta-string">'(click)'</span>: <span class="meta-string">'onClick($event.target)'</span></span></div><div class="line"><span class="meta">  &#125;</span></div><div class="line"><span class="meta">&#125;)</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CountClicks</span> </span>&#123;</div><div class="line">  numberOfClicks = <span class="number">0</span>;</div><div class="line"></div><div class="line">  onClick(btn) &#123;</div><div class="line">    console.log(<span class="string">"button"</span>, btn, <span class="string">"number of clicks:"</span>, <span class="keyword">this</span>.numberOfClicks++);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Component(&#123;</span></div><div class="line"><span class="meta">  selector: <span class="meta-string">'app'</span>,</span></div><div class="line"><span class="meta">  template: `&lt;button counting&gt;Increment&lt;/button&gt;`</span></div><div class="line"><span class="meta">&#125;)</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Host-Property-Bindings（宿主属性绑定）"><a href="#Host-Property-Bindings（宿主属性绑定）" class="headerlink" title="Host Property Bindings（宿主属性绑定）"></a>Host Property Bindings（宿主属性绑定）</h2><p>指定指令更新的DOM属性。在变化检测时，Angular会自动更新宿主的属性绑定。如果绑定发生变化，它将会更新指令的宿主的元素。</p>
+<p><strong>例子</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Directive(&#123;</span></div><div class="line"><span class="meta">  selector: <span class="meta-string">'[ngModel]'</span>,</span></div><div class="line"><span class="meta">  host: &#123;</span></div><div class="line"><span class="meta">    <span class="meta-string">'[class.valid]'</span>: <span class="meta-string">'valid'</span>,</span></div><div class="line"><span class="meta">    <span class="meta-string">'[class.invalid]'</span>: <span class="meta-string">'invalid'</span></span></div><div class="line"><span class="meta">  &#125;</span></div><div class="line"><span class="meta">&#125;)</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NgModelStatus</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="keyword">public</span> control:NgModel) &#123;&#125;</div><div class="line">  <span class="keyword">get</span> valid &#123; <span class="keyword">return</span> <span class="keyword">this</span>.control.valid; &#125;</div><div class="line">  <span class="keyword">get</span> invalid &#123; <span class="keyword">return</span> <span class="keyword">this</span>.control.invalid; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Component(&#123;</span></div><div class="line"><span class="meta">  selector: <span class="meta-string">'app'</span>,</span></div><div class="line"><span class="meta">  template: `&lt;input [(ngModel)</span>]=<span class="string">"prop"</span>&gt;`</div><div class="line">&#125;)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</div><div class="line">  prop;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="属性（Attribute）"><a href="#属性（Attribute）" class="headerlink" title="属性（Attribute）"></a>属性（Attribute）</h2><p>指定应传递至宿主元素的静态属性。  </p>
+<p>下面例子，在宿主元素（这里是<div>）使用 <strong>my-button</strong> 指令（例如：<div my-button=""></div>）将确保该宿主元素获得“button” role。</div></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Directive(&#123;</span></div><div class="line"><span class="meta">  selector: <span class="meta-string">'[my-button]'</span>,</span></div><div class="line"><span class="meta">  host: &#123;</span></div><div class="line"><span class="meta">    <span class="meta-string">'role'</span>: <span class="meta-string">'button'</span></span></div><div class="line"><span class="meta">  &#125;</span></div><div class="line"><span class="meta">&#125;)</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyButton</span> </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">providers?: Provider<span class="string">[]</span></div></pre></td></tr></table></figure>
+<p>定义了对该指令以及其子DOM可见的可注入对象集合。（依赖注入）</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Greeter &#123;</div><div class="line">   greet(name:<span class="built_in">string</span>) &#123;</div><div class="line">     <span class="keyword">return</span> <span class="string">'Hello '</span> + name + <span class="string">'!'</span>;</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Directive</span>(&#123;</div><div class="line">  selector: <span class="string">'greet'</span>,</div><div class="line">  providers: [</div><div class="line">    Greeter</div><div class="line">  ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">class</span> HelloWorld &#123;</div><div class="line">  greeter:Greeter;</div><div class="line">    <span class="comment">//这里greeter是Greeter的实例，而不是形参</span></div><div class="line">  <span class="keyword">constructor</span>(<span class="params">greeter:Greeter</span>) &#123;</div><div class="line">    <span class="keyword">this</span>.greeter = greeter;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exportAs?: <span class="built_in">string</span></div></pre></td></tr></table></figure>
+<p>指定可以在模板中使用的指令名称，将该指令通过 #语法解析 赋值给局部变量</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@Directive</span>(&#123;</div><div class="line">  <span class="attribute">selector</span>: <span class="string">'child-dir'</span>,</div><div class="line">  <span class="attribute">exportAs</span>: <span class="string">'child'</span></div><div class="line">&#125;)</div><div class="line">class ChildDir &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="variable">@Component</span>(&#123;</div><div class="line">  <span class="attribute">selector</span>: <span class="string">'main'</span>,</div><div class="line">  <span class="attribute">template</span>: <span class="built_in">`&lt;child-dir #c="child"&gt;&lt;/child-dir&gt;`</span></div><div class="line">&#125;)</div><div class="line">class MainComponent &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里类似于内置的ngForm指令。通过吧 <strong><em>child</em></strong>赋值给<strong><em>c</em></strong>，C将代表这个DOM元素</p>
+<hr>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><ul>
+<li>指令的输入、输出与组件相同。为什么？因为组件就是指令的一种，是带有模板的指令</li>
+<li>输入输出可以采用inputs、outputs元数据配置项，也可以采用@Input()、@Output()注解，按照 <strong>风格指南</strong>，采用注解较好。</li>
+<li>在Angular中，组件（指令）的宿主就是 <strong>该组件所附着的元素</strong>，借助host选项，就可以在指令或组件内部配置宿主元素的样式、事件等等。</li>
+<li>参考 <a href="https://angular.cn/api/core/Directive#selector" target="_blank" rel="external">https://angular.cn/api/core/Directive#selector</a></li>
+<li><a href="https://angular.cn/guide/attribute-directives" target="_blank" rel="external">https://angular.cn/guide/attribute-directives</a></li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfb.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -738,10 +367,6 @@ ga('send', 'pageview');
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -749,16 +374,75 @@ ga('send', 'pageview');
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/13/angular路由/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/26/Angular指令/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/26/Angular核心总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Angular核心总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -778,89 +462,28 @@ ga('send', 'pageview');
 
 
 
-
   
-    <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/01/my-first-blog/">初出茅庐的召唤师</a>
-    </h1>
   
 
-        
-        <a href="/2017/08/01/my-first-blog/" class="archive-article-date">
-  	<time datetime="2017-08-01T15:16:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>2017年7月1号晚上踏上了来青岛的火车，到今天正好一个月了。工作最大的感受就是还是学生时代好啊，以前总是听人说珍惜学生的时光吧，现在自己深刻体会到过去的时光是一去不复返了。  </p>
-<p>没有什么好抱怨的，作为初出茅庐的召唤师，现在只能买得起出门装，能做的就是猥琐发育吧，心态必须要调整好，做好本职工作的同时，业余时间多点些技能，多积攒些经验。  </p>
-<p>好久没玩LOL了，三年下来我也只会玩盖伦、蛮王、人马、石头人、茂凯和艾希6个英雄，从最开始的盖伦冲上去就是干到现在大树的猥琐发育打团，补刀要扎实、线上要猥琐（自信的选手可以很激进）、防gank意识要强、打团找机会打配合等等。我觉得自己现在就是刚出门的召唤师，需要扎扎实实的发育，放低姿态多学习，只有自身强大了以后才能去想去的地方。  </p>
-<p>又到了睡觉的时间，厚积薄发送给自己，召唤师继续发育吧，林草终将茂盛！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工作</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/01/my-first-blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
 
   
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'true'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -883,8 +506,8 @@ ga('send', 'pageview');
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
