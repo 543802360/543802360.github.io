@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="召唤师峡谷">
 <meta property="og:description" content="Angular是什么Angular是一个用HTML和JavaScript或者一个可以编译成JavaScript的语言（如TypeScript）来构建客户端应用的框架。该框架包括一些列库，有些是核心库，有些是可选库。 AngularJS指Angular1.X版本，现已经停止更新了。Angular专指Angular2+版本。 我们这样写Angular应用：用Angular扩展语法编写HTML 模板，用">
 <meta property="og:image" content="https://543802360.github.io/img/ng总结/ng-overview2.png">
-<meta property="og:updated_time" content="2017-08-26T11:12:27.000Z">
+<meta property="og:updated_time" content="2017-08-27T14:15:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular核心总结">
 <meta name="twitter:description" content="Angular是什么Angular是一个用HTML和JavaScript或者一个可以编译成JavaScript的语言（如TypeScript）来构建客户端应用的框架。该框架包括一些列库，有些是核心库，有些是可选库。 AngularJS指Angular1.X版本，现已经停止更新了。Angular专指Angular2+版本。 我们这样写Angular应用：用Angular扩展语法编写HTML 模板，用">
@@ -249,7 +249,40 @@ ga('send', 'pageview');
 <li>服务要能为组件所使用，是通过“依赖注入”机制把服务注入到组件内部，服务可以单独注入到某一组件，也可以注入到模块，两种注入方式使得服务的作用域不同。</li>
 </ul>
 <hr>
-<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2>
+<h2 id="Angular-模块（NgModule）"><a href="#Angular-模块（NgModule）" class="headerlink" title="Angular 模块（NgModule）"></a>Angular 模块（NgModule）</h2><p>Angular模块能帮你把应用组织成多个内聚的功能块。  </p>
+<p>Angular模块是带有 <strong><em>@NgModule</em></strong> 装饰器函数的类， <strong><em>@NgModule</em></strong> 接收一个元数据对象，该对象告诉Angular如何编译和运行模块代码。它标记出该模块拥有的组件、指令和管道，并把他们的一部分公开出去（export），以便外部组件使用他们。它可以向应用的依赖注入器中添加服务提供商。  </p>
+<p><strong><em>模块是组织应用和使用外部库扩展应用的最佳途径</em></strong></p>
+<p>很多Angular库都是模块，例如：FormsModule、HttpModule、RouterModule。很多第三方库也封装成了Angular模块，例如：Material Design、Ionic、AngularFire2.  </p>
+<p>Angular模块把组件、指令和管道打包成内聚的功能块，每个模块聚焦于一个特定的区域、业务领域、工作流或通用工具。  </p>
+<p>模块还能用来把服务加到应用程序中。这些服务可能是内部研发的，例如日志服务；也可能是外部资源，例如Angular路由和Http客户端。 </p>
+<p>模块可能在应用启动时主动加载，也可能由路由器进行异步惰性加载。   </p>
+<p>Angular模块是一个由 <strong><em>@NgModule</em></strong> 装饰器提供元数据的类，元数据包括：</p>
+<ul>
+<li>声明哪些组件、指令、管道属于该模块（declarations）</li>
+<li>公开某些类（组件、指令、管道等），以便其他的组件模板能够使用它们。（exports）</li>
+<li>导入其他模块，从其他模块中获得本模块所需的组件、指令、管道。（imports）</li>
+<li>在应用程序级提供服务，以便应用中的任何组件都能使用它。（providers）</li>
+</ul>
+<p>每个Angular应用至少有一个模块类——跟模块，我们将通过引导根模块来启动应用。通常命名为 <strong><em>AppModule</em></strong></p>
+<p>对于组件很少的简单应用来说，只用一个根模块就足够了。随着应用规模的增长，我们逐步从跟模块中重构出一些 <strong><em>特性模块</em></strong>，来代表一组相关功能的集合。然后，我们在 <strong><em>根模块中导入它们</em></strong>。</p>
+<h2 id="AppModule-应用的根模块"><a href="#AppModule-应用的根模块" class="headerlink" title="AppModule - 应用的根模块"></a>AppModule - 应用的根模块</h2><p>每个Angular应用都有一个根模块。按照约定，它的类名叫作 <strong><em>AppModule</em></strong>，放置在 <strong><em>app.module.ts</em></strong> 文件中。</p>
+<p>例如，我们使用脚手架new一个ng 项目：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng new hello-angular</div></pre></td></tr></table></figure>
+<p>src/app/app.module.ts中的AppModule是能找到的最简版本：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NgModule &#125;      <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</div><div class="line"><span class="keyword">import</span> &#123; AppComponent &#125;  <span class="keyword">from</span> <span class="string">'./app.component'</span>;</div><div class="line"></div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports:      [ BrowserModule ],</div><div class="line">  declarations: [ AppComponent ],</div><div class="line">  bootstrap:    [ AppComponent ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123; &#125;</div></pre></td></tr></table></figure>
+<p><strong><em><a href="https://angular.cn/api/core/NgModule#declarations" target="_blank" rel="external">@NgModule</a></em></strong> 装饰器用来定义模块的元数据。  </p>
+<p>这个元数据只导入了一个辅助模块，<strong><em>BrowserModule</em></strong>， 每个运行在浏览器中的应用都必须导入它。  </p>
+<p><strong><em>BrowserModule</em></strong> 注册了一些关键的应用服务提供商。它还包括了一些通用的指令，例如 <strong><em>NgIf</em></strong> 、<strong><em>NgFor</em></strong> ，所以这些指令在该模块的任何组件模板中都是可用的。（明白了） </p>
+<p><strong><em>declarations</em></strong> 列出了该应用程序中唯一的组件（根组件），它是应用的光秃秃的组件树的根。下面是该组件类（src/app/app.component.ts）</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">  selector: <span class="string">"app-root"</span>,</div><div class="line">  templateUrl: <span class="string">"./app.component.html"</span>,</div><div class="line">  styleUrls: [<span class="string">"./app.component.css"</span>]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent &#123;</div><div class="line">  title = <span class="string">"app"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后， <strong><em><a href="https://angular.cn/api/core/NgModule#declarations" target="_blank" rel="external">@NgModule.bootstrap</a></em></strong> 属性把这个 <code>AppComponent</code>标记为引导（bootstrap）组件。当Angular引导该应用时，他会在DOM中渲染<code>AppComponent</code>，并把结果放进 <strong><em>index.html</em></strong> 的 <code>&lt;app-root&gt;</code> 元素标记内部。</p>
+<p>上面的最简模块只用到了 <code>@NgModule</code> 元数据的几个配置项，可以阅读官方文档了解其所有元数据项。</p>
+<blockquote>
+<p><strong><em><a href="https://angular.cn/api/core/NgModule#declarations" target="_blank" rel="external">@NgModule</a></em></strong> 接收的元数据对象：</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">  providers?: Provider[]</div><div class="line">  declarations?: <span class="built_in">Array</span>&lt;Type&lt;<span class="built_in">any</span>&gt;|<span class="built_in">any</span>[]&gt;</div><div class="line">  imports?: <span class="built_in">Array</span>&lt;Type&lt;<span class="built_in">any</span>&gt;|ModuleWithProviders|<span class="built_in">any</span>[]&gt;</div><div class="line">  exports?: <span class="built_in">Array</span>&lt;Type&lt;<span class="built_in">any</span>&gt;|<span class="built_in">any</span>[]&gt;</div><div class="line">  entryComponents?: <span class="built_in">Array</span>&lt;Type&lt;<span class="built_in">any</span>&gt;|<span class="built_in">any</span>[]&gt;</div><div class="line">  bootstrap?: <span class="built_in">Array</span>&lt;Type&lt;<span class="built_in">any</span>&gt;|<span class="built_in">any</span>[]&gt;</div><div class="line">  schemas?: <span class="built_in">Array</span>&lt;SchemaMetadata|<span class="built_in">any</span>[]&gt;</div><div class="line">  id?: <span class="built_in">string</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="在main-ts中引导"><a href="#在main-ts中引导" class="headerlink" title="在main.ts中引导"></a>在main.ts中引导</h2><p>在 <strong><em>main.ts</em></strong> 文件中，我们通过引导 <code>AppModule</code> 来启动应用。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; enableProdMode &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"><span class="keyword">import</span> &#123; platformBrowserDynamic &#125; <span class="keyword">from</span> <span class="string">"@angular/platform-browser-dynamic"</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; AppModule &#125; <span class="keyword">from</span> <span class="string">"./app/components/app.module"</span>;</div><div class="line"><span class="keyword">import</span> &#123; environment &#125; <span class="keyword">from</span> <span class="string">"./environments/environment"</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (environment.production) &#123;</div><div class="line">  enableProdMode();</div><div class="line">&#125;</div><div class="line">platformBrowserDynamic().bootstrapModule(AppModule);</div></pre></td></tr></table></figure>
       
 
       
@@ -522,10 +555,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Demo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">express</a>
               </li>
              
@@ -539,6 +568,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Demo</a>
               </li>
              
               <li class="article-tag-list-item">
